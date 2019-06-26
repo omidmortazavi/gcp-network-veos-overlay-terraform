@@ -42,3 +42,28 @@ variable "transit-us-vpc-primarycidr" {
     default = "10.20.0.0/16"
 }
 
+/*
+----------------------------------
+vEOS Variables
+----------------------------------
+*/
+// UK
+variable "uk-veos-hostname" {
+    default = "UK-GCP-SS-XR-01"
+}
+variable "uk-veos-private-ip" {
+    default = "10.10.0.100"
+}
+variable "uk-veos-loopback-mgmt" {
+    default = "192.168.10.1/32"
+}
+// US
+variable "us-veos-hostname" {
+    default = "US-GCP-SS-XR-01"
+}
+variable "us-veos-private-ip" {
+    default = "10.20.0.100"
+}
+variable "us-veos-loopback-mgmt" {
+    default = "192.168.20.1/32"
+}

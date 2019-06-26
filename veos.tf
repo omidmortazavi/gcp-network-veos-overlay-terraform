@@ -2,11 +2,11 @@
 -------------------------
 UK vEOS Router
 -------------------------
-
+*/
 resource "google_compute_instance" "veos_uk" {
     project             = "${module.proj_transit_uk.proj_id_output}"
     name                = "veos-transit-uk"
-    machine_type        = "n1-standard-4"
+    machine_type        = "n1-standard-1"
     zone                = "europe-west2-a"
     can_ip_forward      = "true"
 
@@ -22,6 +22,7 @@ resource "google_compute_instance" "veos_uk" {
         subnetwork_project = "${module.proj_transit_uk.proj_id_output}"
         subnetwork = "subnet-01"
         #network = "transit-uk-vpc"
+        network_ip = "${var.uk-veos-private-ip}"
         access_config = {
         }
     }
@@ -30,4 +31,3 @@ resource "google_compute_instance" "veos_uk" {
     ssh-keys = "omid:${file(var.veos_sshkey_path)}"
   }        
 }
-*/
